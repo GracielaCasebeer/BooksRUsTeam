@@ -6,6 +6,7 @@
 package business;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 /**
@@ -75,6 +76,15 @@ public class Product implements Serializable{
     public String getPriceCurrencyFormat() {
         NumberFormat currency = NumberFormat.getCurrencyInstance();
         return currency.format(productPrice);
+    }
+    
+    /**
+     * Gets productPrice as formatted decimal string with two places
+     * @return Formatted string
+     */
+    public String getPriceStringFormat() {
+        DecimalFormat df = new DecimalFormat("#.00");
+        return df.format(productPrice);
     }
     
     public String getImageURL() {
