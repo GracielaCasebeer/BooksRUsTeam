@@ -374,8 +374,8 @@ public class CartServlet extends HttpServlet {
         //Initialize email fields to, from, subject, and body
         String to = user.getEmail();
         String from = "gracielajhu682@gmail.com";
-        String subject = "Books R Us Order Confirmation";
-        String body = getMessageBody(user);
+        String subject = "Books R Us Order #" + order.getOrderID() + " Confirmation";
+        String body = getMessageBody(user, cart, order);
         boolean isBodyHTML = true;
 
         //Send order confirmation email
@@ -410,7 +410,7 @@ public class CartServlet extends HttpServlet {
         return url;
     }
     
-    private String getMessageBody(User user) {
+    private String getMessageBody(User user, Cart cart, Order order) {
         //Create string builder object
         StringBuilder sb = new StringBuilder();
         
@@ -424,16 +424,54 @@ public class CartServlet extends HttpServlet {
         sb.append("</head>");
         sb.append("<body>");
         sb.append("<section>");
-        sb.append("<h1>Thank you, ").append(user.getFirstName()).append("!</h1>");
-        sb.append("<p><br>");
-        sb.append("Your order has been submitted and it's being processed.<br>");
-        sb.append("A confirmation was sent to your email on file.");
-        sb.append("</p>");
+        sb.append("<h1>Thank you for your order, ").append(user.getFirstName()).append("!</h1>");
+        sb.append("<h2>Order Details</h2>Order Number: ").append(order.getOrderID()).append("<br>");
+        sb.append(buildProductTableForEmail(order.getOrderTotalCurrencyFormat(),cart));
+        sb.append("<br>");
+        sb.append("Shipping Details:<br>");
+        sb.append(user.getFullName()).append("<br>");
+        sb.append(user.getFullAddress()).append("<br><br>");
+        sb.append("Payment Details:<br>");
+        sb.append(user.getCreditCardType()).append("-");
+        sb.append(user.getCreditCardNumber().substring(12)).append("<br><br>");
+        sb.append("Your order is being processed and should ship soon within two buiness days.<br><br>");
+        sb.append("We greatly appreciate your business!<br><br>Thanks,<br>Books R Us");
         sb.append("</section>");
         sb.append("</body>");
         sb.append("</html>");
         
         //Return email body content
+        return sb.toString();
+    }
+    
+    /**
+     * Create a table for displaying product order details in a format
+     * @param cart Cart that was checked out
+     * @return HTML formatted string of table
+     */
+    private String buildProductTableForEmail(String orderTotal, Cart cart) {
+        ArrayList<LineItem> items = cart.getItems();
+        
+        //Create string builder object
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("<table border=\"1\" cellpadding=\"3\"><tr><th>Qty</th>");
+        sb.append("<th>Product</th><th>Unit Price</th><th>Sub-Total</th></tr>");
+        for (LineItem item : items) {
+            sb.append("<tr><td>").append(item.getQuantity()).append("</td>");
+            sb.append("<td>").append(item.getProduct().getProductTitle());
+            sb.append(" - Item BRU-").append(item.getProduct().getProductID());
+            sb.append("</td>");
+            sb.append("<td>").append(item.getProduct().getPriceStringFormat());
+            sb.append("</td>");
+            sb.append("<td>").append(item.getTotalCurrencyFormat());
+            sb.append("</td></tr>");
+        }
+        sb.append("<tr><td colspan=\"2\"></td><td><b>Total</b></td><td><b>");
+        sb.append(orderTotal).append("</td></tr>");
+        sb.append("</table>");
+        
+        // Return table string
         return sb.toString();
     }
 }
