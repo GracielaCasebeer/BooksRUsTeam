@@ -6,6 +6,7 @@
 package business;
 
 import java.io.Serializable;
+import java.text.NumberFormat;
 
 /**
  *
@@ -40,5 +41,14 @@ public class Order implements Serializable{
 
     public void setOrderTotal(double orderTotal) {
         this.orderTotal = orderTotal;
+    }
+    
+    /**
+     * Gets orderTotal as formatted currency string
+     * @return Formatted string
+     */
+    public String getOrderTotalCurrencyFormat() {
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        return currency.format(orderTotal);
     }
 }    
