@@ -145,5 +145,27 @@ public class User implements Serializable{
         this.creditCardYear = creditCardYear;
     }
     
+    /**
+     * Concatenates firstName and lastName and returns
+     * @return Full User Name
+     */
+    public String getFullName() {
+        return getFirstName() + " " + getLastName();
+    }
     
+    /**
+     * Concatenates street address, city, state, and zip and returns
+     * @return  Full User Address
+     */
+    public String getFullAddress() {
+        //Create string builder object
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append(getAddress()).append(", ");
+        sb.append(getCity()).append(", ");
+        sb.append(getState()).append(" ");
+        sb.append(getZip());
+        
+        return sb.toString();
+    }
 }
