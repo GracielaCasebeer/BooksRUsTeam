@@ -13,9 +13,9 @@
     <c:url var="actionUrl" value=""/>
     actionURL: ${actionUrl}<br>
     pageContext: ${pageContext.request.contextPath}<br>
-    -->
     sessionID: ${pageContext.session.id}<br>
     userEmail: ${user.email}<br>
+    -->
 
     <div class="container-fluid">
         <div class="col-md-12">
@@ -30,7 +30,7 @@
                            value="${item.productID}">
                     <input type="hidden" name="productCategory" 
                            value="${item.productCategory}">
-                    <img src="${pageContext.request.contextPath}/images/<c:out 
+                    <img id="bookCover" src="${pageContext.request.contextPath}/images/<c:out 
                              value="${item.productImageURL}"/>" 
                          alt="Book cover" width="130" height="130" style="display: inline-block;">
                     <p><font color="#666"><c:out value="${item.productTitle}"/></font></p>

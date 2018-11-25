@@ -12,10 +12,9 @@
     <c:url var="actionUrl" value=""/>
     actionURL: ${actionUrl}<br>
     pageContext: ${pageContext.request.contextPath}<br>
-    -->
     sessionID: ${pageContext.session.id}<br>
     userEmail: ${user.email}<br>
-    
+    -->    
     
     <div class="container"
          style="width: 100%; height: 460px; background: #FF2C4C url('${pageContext.request.contextPath}/images/registerbg.jpg') no-repeat;">

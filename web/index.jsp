@@ -11,9 +11,9 @@
     <c:url var="actionUrl" value=""/>
     actionURL: ${actionUrl}<br>
     pageContext: ${pageContext.request.contextPath}<br>
-    -->
     sessionID: ${pageContext.session.id}<br>
     userEmail: ${user.email}<br>
+    -->    
     
     <p><i>${message}</i></p>
     <!--
@@ -83,7 +83,7 @@
             </div>
         </div>
 
-        <hr class="featurette-divider">
+    <hr class="featurette-divider">
     
 </section>
 <jsp:include page="/includes/footer.jsp"/>

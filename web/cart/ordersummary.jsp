@@ -14,10 +14,9 @@
     <c:url var="actionUrl" value=""/>
     actionURL: ${actionUrl}<br>
     pageContext: ${pageContext.request.contextPath}<br>
-    -->
     sessionID: ${pageContext.session.id}<br>
     userEmail: ${user.email}<br>
-    
+    -->    
     
     <h1>Your Order Summary</h1>
     
