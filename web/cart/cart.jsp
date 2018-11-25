@@ -47,7 +47,7 @@
                      </form>
                  </td>
                  <td>${item.product.productTitle}</td>
-                 <td>${item.product.productPrice}</td>
+                 <td>${item.product.priceStringFormat}</td>
                  <td>${item.totalCurrencyFormat}</td>
                  <td>
                      <form action="${pageContext.request.contextPath}/ProductCatalogServlet/CartServlet/removeItem" method="POST">

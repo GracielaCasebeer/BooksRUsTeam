@@ -31,7 +31,7 @@
             <tr>
                 <td>${item.quantity}</td>
                 <td>${item.product.productTitle}</td>
-                <td>${item.product.productPrice}</td>
+                <td>${item.product.priceStringFormat}</td>
                 <td>${item.totalCurrencyFormat}</td>
             </tr>
         </c:forEach>
@@ -39,7 +39,7 @@
             <td></td>
             <td></td>
             <th>Total:</th>
-            <td>$${order.orderTotal}0</td>
+            <td>${order.orderTotalCurrencyFormat}</td>
         </tr>
     </table>
     
