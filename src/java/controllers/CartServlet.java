@@ -434,7 +434,7 @@ public class CartServlet extends HttpServlet {
         sb.append("Payment Details:<br>");
         sb.append(user.getCreditCardType()).append("-");
         sb.append(user.getCreditCardNumber().substring(12)).append("<br><br>");
-        sb.append("Your order is being processed and should ship soon within two buiness days.<br><br>");
+        sb.append("Your order is being processed and should ship soon within two business days.<br><br>");
         sb.append("We greatly appreciate your business!<br><br>Thanks,<br>Books R Us");
         sb.append("</section>");
         sb.append("</body>");
