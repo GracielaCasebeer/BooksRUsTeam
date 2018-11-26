@@ -47,7 +47,7 @@
 
     <div class="row featurette">
         <div class="col-md-7">
-            <h2 class="featurette-heading">Classic Book</h2>
+            <h2 class="featurette-heading">Classic Books</h2>
             <p class="lead">We only collect a book as classic only if it is exemplary or noteworthy. For example, it is listed in a list of great books by an imprimatur.Classics are those great pieces of literature considered worthy to be studied from youth to old age.  "Classics are books your fathers give you and you keep them to give to your children" </p>
             <p><a class="btn btn-default" role="button" href="${pageContext.request.contextPath}/ProductCatalogServlet/?action=showClassics">View details &raquo;</a></p>
         </div>
@@ -60,7 +60,7 @@
     
     <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
-            <h2 class="featurette-heading">Business Book</h2>
+            <h2 class="featurette-heading">Business Books</h2>
             <p class="lead">We collected best Business, Economic and Management books 2018 to give you extra pep you need to follow-through with your career goals. Many of these books listed for the Financial Time and McKinsey Business Books of the Year Award.These business books are great for anyone looking to start or 
                 grow a business, advance their careers, build their skilss and become more effective in life and work.</p>
             <p><a class="btn btn-default" role="button" href="${pageContext.request.contextPath}/ProductCatalogServlet/?action=showBusiness">View details &raquo;</a></p>
@@ -74,7 +74,7 @@
     
     <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">Technology Book</h2>
+                <h2 class="featurette-heading">Technology Books</h2>
                 <p class="lead">We collected most popular books that help inform readers about the trends, skills, challenges, and predictions for a technological world. These technology books will help you create a place where everything you imagine can exist.</p>
                 <p><a class="btn btn-default" role="button" href="${pageContext.request.contextPath}/ProductCatalogServlet/?action=showTechnology">View details &raquo;</a></p>
             </div>
