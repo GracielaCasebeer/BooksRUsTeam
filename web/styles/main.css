@@ -61,7 +61,12 @@ table{
     width: 80%;
     border-collapse: collapse;
 }
-.cartTable td, .cartTable th {
+.cartTable th {
+    border: 1px solid #ddd;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+}
+.cartTable td {
     border: 1px solid #ddd;
     padding: 10px 10px 10px 10px;
     text-align: left;

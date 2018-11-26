@@ -27,7 +27,7 @@
         <p><i>${message}</i></p>
         <table class="cartTable">
            <tr>
-            <th>Qty</th>
+            <th colspan="2" >Quantity</th>
             <th>Description</th>
             <th>Price</th>
             <th>Amount</th>
@@ -43,7 +43,12 @@
                                 value="${item.product.productCategory}"/>
                          <input type="text" name="productQty" 
                                 value="${item.quantity}" class="cartQtyInput"/>
+                         <!--
                          <input type="submit" value="Update" id="mainButton">
+                         -->
+                         <td>
+                             <input type="submit" value="Update" id="mainButton">
+                         </td>
                      </form>
                  </td>
                  <td>${item.product.productTitle}</td>
@@ -61,7 +66,7 @@
              </tr>
          </c:forEach> 
         <tr>
-            <td colspan="5">
+            <td colspan="6">
                 <p><b>To change the quantity for an item</b>, enter the new 
                 quantity and click on the Update button.</p>
                 <p><b>To remove an item</b>, click on the Remove button.</p>
