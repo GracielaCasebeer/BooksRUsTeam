@@ -299,7 +299,7 @@ public class CartServlet extends HttpServlet {
 
             //Set order total
             order.setOrderTotal(total);
-
+            
             //Set order attribute in session
             session.setAttribute("order", order);
         }
@@ -345,6 +345,8 @@ public class CartServlet extends HttpServlet {
         User user = (User) session.getAttribute("user");
         Order order = (Order) session.getAttribute("order");
         Cart cart = (Cart) session.getAttribute("cart");
+        
+        order.setUserID(user.getUserID());
         
         //Declare and initialize cartContent variable
         ArrayList<LineItem> cartContent = cart.getItems();
@@ -434,7 +436,7 @@ public class CartServlet extends HttpServlet {
         sb.append("Payment Details:<br>");
         sb.append(user.getCreditCardType()).append("-");
         sb.append(user.getCreditCardNumber().substring(12)).append("<br><br>");
-        sb.append("Your order is being processed and should ship soon within two business days.<br><br>");
+        sb.append("Your order is being processed and should ship within two business days.<br><br>");
         sb.append("We greatly appreciate your business!<br><br>Thanks,<br>Books R Us");
         sb.append("</section>");
         sb.append("</body>");

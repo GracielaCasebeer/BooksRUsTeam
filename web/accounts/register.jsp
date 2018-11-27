@@ -6,6 +6,16 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/includes/header.jsp"/>
+<script language='javascript' type='text/javascript'>
+    function validatePassword() {
+        if (document.getElementById('inputPassword3').value != document.getElementById('confirmPassword3').value) {
+            confirmPassword3.setCustomValidity('Passwords Must be Matching.');
+        } else {
+            // input is valid -- reset the error message
+            confirmPassword3.setCustomValidity('');
+        }
+    }
+</script>
 <section>
     
     <!-- Lines for debugging purposes only
@@ -31,14 +41,21 @@
                             <label for="email" class="col-sm-2 control-label">Email:</label>
                             <div class="col-sm-6">
                                 <input type="email" name="email" class="form-control" id="username" required
-                                       placeholder="please enter Email">
+                                       placeholder="Please enter email">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">Password:</label>
                             <div class="col-sm-6">
                                 <input type="password" name="password" class="form-control" id="inputPassword3" required
-                                       placeholder="Please enter password">
+                                       placeholder="Please enter password" onchange="validatePassword()">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword3" class="col-sm-2 control-label">Confirm:</label>
+                            <div class="col-sm-6">
+                                <input type="password" name="confirm" class="form-control" id="confirmPassword3" required
+                                       placeholder="Please confirm password" onchange="validatePassword()">
                             </div>
                         </div>
                         <div class="form-group">

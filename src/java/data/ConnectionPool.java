@@ -21,7 +21,7 @@ public class ConnectionPool {
         try {
             InitialContext ic = new InitialContext();
             dataSource = (DataSource) ic.lookup
-                            ("java:/comp/env/jdbc/sql3262273");
+                            ("java:/comp/env/jdbc/sql9265772");
         } catch (NamingException e) {
             System.out.println(e);
         }

@@ -21,10 +21,8 @@ public class UserDB {
         ResultSet rs = null;
 
         String query
-                = "INSERT INTO User (firstName, lastName, email, password, "
-                + "address, city, state, zip, creditCardType, "
-                + "creditCardNumber, creditCardMonth, creditCardYear) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                = "INSERT INTO User (email, password) "
+                + "VALUES (?, ?)";
         
         String identityQuery = "SELECT userID FROM User "
                     + "WHERE email = ?";
@@ -32,18 +30,8 @@ public class UserDB {
         try {
             //Insert new user
             ps = connection.prepareStatement(query);
-            ps.setString(1, user.getFirstName());
-            ps.setString(2, user.getLastName());
-            ps.setString(3, user.getEmail());
-            ps.setString(4, user.getPassword());
-            ps.setString(5, user.getAddress());
-            ps.setString(6, user.getCity());
-            ps.setString(7, user.getState());
-            ps.setString(8, user.getZip());
-            ps.setString(9, user.getCreditCardType());
-            ps.setString(10, user.getCreditCardNumber());
-            ps.setString(11, user.getCreditCardMonth());
-            ps.setString(12, user.getCreditCardYear());
+            ps.setString(1, user.getEmail());
+            ps.setString(2, user.getPassword());
             ps.executeUpdate();
             
             //Get the user ID from the last INSERT statement.
